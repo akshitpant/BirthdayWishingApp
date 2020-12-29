@@ -1,0 +1,31 @@
+package com.example.birthdaygreet
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.View
+import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+    }
+
+    fun CreateBirthdayCard(view: View) {
+
+        //Toast.makeText(this,"Button was Clicked",Toast.LENGTH_LONG).show()
+
+        //val name = nameInput.editableText.toString()
+        //Toast.makeText(this,"name is $name",Toast.LENGTH_LONG).show()
+
+
+        //id 'kotlin-android-extensions'  ....... add this extension in  ...... build.gradle(Module.Birthday_Greet.app)  ..... for nameInput.editableText to work
+        val name = nameInput.editableText.toString()
+        val intent = Intent(this,BirthdayGreetingActivity::class.java)
+        intent.putExtra(BirthdayGreetingActivity.NAME_EXTRA,name)
+        startActivity(intent)
+
+    }
+}
